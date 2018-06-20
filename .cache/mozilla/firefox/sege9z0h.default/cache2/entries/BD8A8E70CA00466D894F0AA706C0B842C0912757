@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Please Login</title>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+<style>
+body{
+	font-family: 'Open Sans', sans-serif, Arial, Helvetica;
+	font-size:14px;
+	margin:0;
+}
+h1{
+	font-size: 24px;
+	color:#b97c24;
+	font-weight:800;
+	text-decoration:none;
+}
+/*Header Styles*/
+#logo
+{
+   	width: 153px;
+    height: 72px;
+    position: relative;
+    top: 0px;
+    left:15px;
+	float:left;
+}
+
+#logo a
+{
+    background:url(logo.gif) no-repeat;
+    display: block;
+    text-indent: -9000px;
+  	width: 153px;
+    height: 72px;
+    outline:0;
+}
+/*Button Styles*/
+.green_home_button{
+	font-style:italic;
+	text-align:center;
+	color:#ffffff;
+	text-shadow:1px 1px 2px #383838;
+	padding:5px;
+	position:relative;
+	margin:0 auto;
+	margin-top:9px;
+	font-size:15px;	
+	cursor:pointer;
+	
+	/*Round Corners*/
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
+	
+	/*Gradiant*/
+	background: #58863c;
+	
+	/*Inner Glow*/
+	-webkit-box-shadow: inset 0 0 5px #1e6633;
+    -moz-box-shadow: inset 0 0 5px #1e6633;
+    box-shadow: inset 0 0 5px #1e6633;
+	
+}
+.green_home_button:hover{
+	background: #478d33; /* Old browsers */
+	background: -moz-linear-gradient(top,  #478d33 0%, #66bc46 50%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#478d33), color-stop(50%,#66bc46)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #478d33 0%,#66bc46 50%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #478d33 0%,#66bc46 50%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #478d33 0%,#66bc46 50%); /* IE10+ */
+	background: linear-gradient(to bottom,  #478d33 0%,#66bc46 50%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#478d33', endColorstr='#66bc46',GradientType=0 ); /* IE6-9 */
+	
+}
+/*Footer Styles*/
+#footer{
+	height:30px;
+	line-height:29px;
+	position:relative;
+	text-align:right;
+	width:100%;
+	float:right;
+}
+#footer ul{
+	list-style:none;
+	margin: 0;
+	padding: 0;
+	height:30px;	
+}
+#footer ul li{
+	margin-right: 15px;
+	display: inline;
+	height: 30px;	
+	font-size: 12px;
+	color:#CCCCCC;
+}
+#footer a{
+	color:#CCCCCC;
+	text-decoration:none;	
+	transition: all 0.3s ease 0s;
+}
+#footer a:hover{
+	color:#FFFFFF;	
+}
+.session        {
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+        color:#000000;
+        font-weight:bold;
+}
+
+</style>
+
+<script language=JavaScript>
+<!--
+
+function SetCookie(name, value, expires, path, domain, secure)
+{
+	var today = new Date();
+	today.setTime(today.getTime());
+
+	if(expires)
+	{
+		expires = expires * 1000 * 60 * 60 * 24;
+	}
+
+	var expires_date = new Date(today.getTime() + (expires));
+	
+	document.cookie = name + "=" +escape( value ) + ((expires)?";expires=" + expires_date.toGMTString():"") + ((path)? ";path=" + path : "") + ((domain)? ";domain=" + domain : "" ) + ((secure)? ";secure" : "" );
+}
+
+function GetCookie(check_name) 
+{
+	var a_all_cookies = document.cookie.split( ';' );
+	var a_temp_cookie = '';
+	var cookie_name = '';
+	var cookie_value = '';
+	var b_cookie_found = false;
+
+	for(i = 0; i < a_all_cookies.length; i++)
+	{
+		a_temp_cookie = a_all_cookies[i].split( '=' );
+		cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, '');
+
+		if(cookie_name == check_name)
+		{
+			b_cookie_found = true;
+			
+			if(a_temp_cookie.length > 1)
+			{
+				cookie_value = unescape(a_temp_cookie[1].replace(/^\s+|\s+$/g, ''));
+			}
+
+			return cookie_value;
+			break;
+		}
+
+		a_temp_cookie = null;
+		cookie_name = '';
+	}
+
+	if(!b_cookie_found)
+	{
+		return null;
+	}
+}
+
+function selectLdapServer()
+{
+	var serverIndex = GetCookie('defaultLdapServer');
+	
+	if(serverIndex)
+	{	
+		for(i = 0; i <= document.forms[0].ldapServer.options.length - 1; i++)
+		{
+			if(document.forms[0].ldapServer.options[i].value == serverIndex)
+			{
+				document.forms[0].ldapServer.options[i].selected = "1";
+			}
+		}
+	}
+}
+
+function submitForm(actionValue)
+{
+	document.forms[0].action.value = actionValue;
+	document.forms[0].submit();
+}
+
+function login()
+{
+	SetCookie('defaultLdapServer', document.forms[0].ldapServer.value, 300, '/', null, null);
+	document.forms[0].action.value = 'login';
+	document.forms[0].submit();
+}
+
+function stopSubmit()
+{
+	return false;
+}
+
+function checkEnter(e)
+{ 
+	var characterCode;
+
+	if(e && e.which)
+	{
+		e = e;
+		characterCode = e.which;
+	}
+	else
+	{
+		e = event;
+		characterCode = e.keyCode;
+	}
+
+	if(characterCode == 13)
+	{ 
+		login();
+		return false; 
+	}
+	else
+	{
+		return true; 
+	}
+}
+
+function setFocus()
+{
+	document.forms[0].userName.focus();
+}
+// -->
+</script>
+
+</head>
+<body onLoad="javascript:displaySections();selectLdapServer();">
+<center>
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td colspan="2" align="center">
+      	<table cellspacing="0" cellpadding="0" width="625">
+        	<tr><td height="15"></td></tr>
+        	<tr><td class="session" align="center" height="30"></td></tr></table>
+   	  </td>
+    </tr>
+    <tr>
+      <td height="511" colspan="2" align="center"><center>
+  <table cellpadding="0" cellspacing="0" width="900" style="background:url(http://158.91.1.164/content_bg.gif) repeat-y center;">
+    <tr>
+      <td style="background:url(http://158.91.1.164/topLogin.gif) repeat-x; height:80px;">
+		      	<div id="logo">
+            <a href="http://158.91.1.164/why_blocked" target="_blank">iboss Network Security</a>
+            <span></span>
+        </div>
+
+      </td>
+    </tr>
+    <tr>
+      <td height="130" align="left"><table cellpadding="0" cellspacing="0" align="left" width="100%">
+          <tr>
+          	<td height="15" colspan="3"></td>
+           </tr>
+          <tr>
+            <td width="35%">&nbsp;</td>
+            <td width="30%"><h1>Please Login</h1></td>
+            <td width="35%">&nbsp;</td>
+          </tr>
+
+<tr><td colspan="100%" height="10"></td></tr>
+<tr>
+<td colspan="100%" class="sessionMessage" align="center" height="25">You have been logged out.</td>
+</tr>
+<tr>
+<td colspan="100%" height="10"></td>
+</tr>
+
+          <tr>
+            <td height="50">&nbsp;</td>
+            <td class="text3">
+            <table class="text3" cellpadding="3" cellspacing="0" width="100%" align="left">
+            <form action="https://internet6.provo.edu/user_login_submit" method="POST" onSubmit="return stopSubmit()">
+                <tr>
+                  <td colspan="100%" height="5"></td>
+                </tr>
+                <tr>
+                  <td colspan="100%" class="session" align="center" height="30"></td>
+                </tr>
+                <tr>
+                  <td width="3%">&nbsp;</td>
+                  <td width="15%"><strong>Username:</strong><span id="url"></span></td>
+                  <td width="82%"><input type="text" name="userName" size="40" maxlength="64" tabindex="1"></td>
+                </tr>
+                <tr>
+                <td width="3%">&nbsp;</td>
+                  <td width="15%"><strong>Password:</strong><span id="url"></span></td>
+                  <td width="82%"><input type="password" name="x" size="40" maxlength="128" tabindex="2" onKeyPress="checkEnter(event)"></td>
+                </tr>
+                <tr><td height="30" width="27"></td><td width="111" class="session">Server:</td><td colspan="2"><select name="ldapServer"><option value="0">PSD</option></select></td></tr>
+                <tr>
+                <td colspan="100%">&nbsp;</td>
+                </tr>
+                <tr>
+                	
+                  <td colspan="3"><a href="javascript:login();" tabindex="3" style="text-decoration:none;"><div class="green_home_button" style="width:90px;">Login</div></a></td>
+                </tr>
+                <input type="hidden" name="action">
+                <input type="hidden" name="redirectUrl" value="">                         
+                </form>
+                
+  <script language="javascript">
+  <!--
+  document.forms[0].userName.focus()
+  //-->
+  </script>
+
+                
+            </table></td>
+            <td>&nbsp;</td>
+          </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td><table width="100%" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="35%"></td>
+            <td class="text3" width="4%"></td>
+            <td width="61%"></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="100%"></td>
+          </tr>
+        </table></td>
+    </tr>
+    
+    <tr >
+      <td style="background:#000000; height:30px;">
+          <div id="footer">
+          		<ul><li>&copy; 2014 iboss, Inc. All rights reserved.</li></ul>
+          </div>
+      </td>
+    </tr>
+  </table>
+</center>
+</td>
+    </tr>
+  </table>
+</center>
+</body>
+</html>
+0Þ]4      [žA[žA?"Š“       5    :http://158.91.1.164/user_logout_submit?action=logout necko:classified 1 strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 8960
+Access-Control-Allow-Headers: Authorization
+Access-Control-Allow-Origin: *
+Cache-Control: no-cache
+Expires: -1
+ original-response-headers Content-Type: text/html
+Content-Length: 8960
+Access-Control-Allow-Headers: Authorization
+Access-Control-Allow-Origin: *
+Cache-Control: no-cache
+Expires: -1
+Connection: close
+ uncompressed-len 0 net-response-time-onstart 43 net-response-time-onstop 44   # 

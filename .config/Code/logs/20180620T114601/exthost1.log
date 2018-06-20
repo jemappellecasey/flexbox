@@ -1,0 +1,18 @@
+[2018-06-20 11:46:12.815] [exthost1] [info] extension host started
+[2018-06-20 11:46:12.848] [exthost1] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-06-20 11:46:12.848] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/37/usr/share/code/resources/app/extensions/emmet/out/extension
+[2018-06-20 11:46:12.927] [exthost1] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-06-20 11:46:12.927] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/37/usr/share/code/resources/app/extensions/git/out/main
+[2018-06-20 11:46:13.352] [exthost1] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-06-20 11:46:13.352] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/37/usr/share/code/resources/app/extensions/merge-conflict/out/extension
+[2018-06-20 11:46:13.392] [exthost1] [info] eager extensions activated
+[2018-06-20 11:46:59.851] [exthost1] [info] extension host started
+[2018-06-20 11:46:59.922] [exthost1] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-06-20 11:46:59.922] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/37/usr/share/code/resources/app/extensions/emmet/out/extension
+[2018-06-20 11:47:00.043] [exthost1] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-06-20 11:47:00.043] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/37/usr/share/code/resources/app/extensions/git/out/main
+[2018-06-20 11:47:00.466] [exthost1] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-06-20 11:47:00.466] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/37/usr/share/code/resources/app/extensions/merge-conflict/out/extension
+[2018-06-20 11:47:00.561] [exthost1] [info] eager extensions activated
+[2018-06-20 11:47:08.641] [exthost1] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"activationEvent":"onLanguage:html"}
+[2018-06-20 11:47:08.641] [exthost1] [info] ExtensionService#loadCommonJSModule /snap/vscode/37/usr/share/code/resources/app/extensions/html-language-features/client/out/htmlMain
